@@ -10,6 +10,9 @@ import Settings from '@/models/Settings';
 const display = Playfair_Display({ subsets: ['latin'], variable: '--font-display', weight: ['600', '700', '800'] });
 const body = Poppins({ subsets: ['latin'], variable: '--font-body', weight: ['300', '400', '500', '600', '700'] });
 
+const SITE_NAME = 'Vashika Collection';
+const DEFAULT_SITE_URL = 'https://www.vashikacollection.com';
+
 export async function generateMetadata() {
   let settings = null;
   try {
@@ -18,17 +21,17 @@ export async function generateMetadata() {
   } catch {
     settings = null;
   }
-  const title = settings?.seoTitle || 'SSRK Trending Collections - Women Kurtis, Nighties & More';
+  const title = settings?.seoTitle || `${SITE_NAME} - Women Kurtis, Nighties & More`;
   const description =
     settings?.seoDescription ||
-    'Shop authentic women kurtis, nighties, innerwear and trending collections online from SSRK Trending Collections.';
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ssrkcollections.com';
+    `Shop authentic women kurtis, nighties, innerwear and trending collections online from ${SITE_NAME}.`;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL;
   return {
-    title: { default: title, template: '%s | SSRK Trending Collections' },
+    title: { default: title, template: `%s | ${SITE_NAME}` },
     description,
     metadataBase: new URL(siteUrl),
-    keywords: ['women kurtis online', 'nighties online', 'innerwear online', 'SSRK trending collections', 'women fashion'],
-    openGraph: { title, description, siteName: 'SSRK Trending Collections', type: 'website' },
+    keywords: ['women kurtis online', 'nighties online', 'innerwear online', 'Vashika Collection', 'women fashion'],
+    openGraph: { title, description, siteName: SITE_NAME, type: 'website', url: siteUrl },
     icons: { icon: '/favicon.ico' },
   };
 }
