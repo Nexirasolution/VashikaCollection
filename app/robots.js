@@ -1,5 +1,5 @@
 export default function robots() {
-  const siteUrl ='https://www.vashikacollection.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.vashikacollection.com';
   return {
     rules: [
       { userAgent: '*', allow: '/', disallow: ['/admin', '/api'] }

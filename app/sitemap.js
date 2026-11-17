@@ -3,7 +3,7 @@ import Product from '@/models/Product';
 import Category from '@/models/Category';
 
 export default async function sitemap() {
-  const siteUrl = 'https://www.vashikacollection.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.vashikacollection.com';
   let products = [];
   let categories = [];
   try {

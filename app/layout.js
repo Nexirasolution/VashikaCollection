@@ -25,7 +25,7 @@ export async function generateMetadata() {
   const description =
     settings?.seoDescription ||
     `Shop authentic women kurtis, nighties, innerwear and trending collections online from ${SITE_NAME}.`;
-  const siteUrl = DEFAULT_SITE_URL;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL;
   return {
     title: { default: title, template: `%s | ${SITE_NAME}` },
     description,
